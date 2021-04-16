@@ -25,7 +25,7 @@ public class SquareServlet extends HttpServlet {
 			 }
 		}
 		  
-		 res.getWriter().println("square value - "+ k*k);
+		 res.getWriter().println("square value - "+ k*k + "  "+getServletContext().getInitParameter("name") + "  "+ getServletConfig().getInitParameter("name"));
 		 
 		
 		//res.getWriter().println("send redirect");
