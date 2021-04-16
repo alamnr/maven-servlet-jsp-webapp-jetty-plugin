@@ -15,8 +15,11 @@ public class AddServlet  extends HttpServlet {
 		
 		//res.getWriter().println(i+j);
 		
-		req.setAttribute("k", i+j);
-		RequestDispatcher rd = req.getRequestDispatcher("square");
-		rd.forward(req, res);
+		/*
+		 * req.setAttribute("k", i+j); RequestDispatcher rd =
+		 * req.getRequestDispatcher("square"); rd.forward(req, res);
+		 */
+		
+		res.sendRedirect("square?k="+i+j); // url rewriting through send redirect
 	}
 }

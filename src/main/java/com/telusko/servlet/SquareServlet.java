@@ -9,9 +9,17 @@ import javax.servlet.http.HttpServletResponse;
 public class SquareServlet extends HttpServlet {
 	
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
-		int k = (int) req.getAttribute("k");
+		doGet(req, res);
+	}
+	
+	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		
-		res.getWriter().println("square value - "+ k*k);
+		  //int k = (int) req.getAttribute("k");
+		  int k = Integer.parseInt(req.getParameter("k"));
+		 res.getWriter().println("square value - "+ k*k);
+		 
+		
+		//res.getWriter().println("send redirect");
 	}
 
 }
