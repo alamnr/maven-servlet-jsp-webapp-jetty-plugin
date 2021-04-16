@@ -2,6 +2,7 @@ package com.telusko.servlet;
 
 import java.io.IOException;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +16,15 @@ public class SquareServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		
 		  //int k = (int) req.getAttribute("k");
-		  int k = Integer.parseInt(req.getParameter("k"));
+		  //int k = Integer.parseInt(req.getParameter("k"));
+		    //int k = (int) req.getSession().getAttribute("k");
+		 int k=0;
+		 for (Cookie ck : req.getCookies()) {
+			 if(ck.getName().equals("k")) {
+				 k= Integer.parseInt(ck.getValue());
+			 }
+		}
+		  
 		 res.getWriter().println("square value - "+ k*k);
 		 
 		
